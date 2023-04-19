@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
+
 
 function App() {
+    const [isOnOff, setOnOff] = useState<boolean>(false)
     return (
         <div>
             <PageTitle title="App Title"/>
@@ -13,7 +16,7 @@ function App() {
             Article 2
             <Accordion title={"Menu"} collapsed={true}/>
             <Rating value={5}/>
-
+            <OnOff/>
         </div>
     );
 }
