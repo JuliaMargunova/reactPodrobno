@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import styles from './OnOff.module.css'
 
-
-export const OnOff = () => {
-    const [isOn,setOn]= useState<boolean>(false)
-    const onStyle = {
+type PropsType = {
+    isOn:boolean
+    setOnHandler:(on:boolean)=>void
+}
+export const OnOff: React.FC<PropsType> = ({isOn,setOnHandler}) => {
+     const onStyle = {
         display: 'inline-block',
         border: '1px solid ',
         backgroundColor: isOn ? "green" : "grey",
@@ -26,12 +28,11 @@ export const OnOff = () => {
         backgroundColor: isOn ? 'green' : 'red',
         marginLeft: '5px'
     }
-
     return (
         <div>
-            <div style={onStyle} onClick={()=>setOn(!isOn)}>On
+            <div style={onStyle} onClick={()=>setOnHandler(true)}>On
             </div>
-            <div style={offStyle} onClick={()=>setOn(!isOn)}>Off
+            <div style={offStyle} onClick={()=>setOnHandler(false)}>Off
             </div>
             <div style={circle}></div>
         </div>

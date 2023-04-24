@@ -5,22 +5,27 @@ import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UnvontrolledRating} from "./components/UnvontrolledRating/UnvontrolledRating";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
+export type StarType = 0 | 1 | 2 | 3 | 4 | 5;
 
 function App() {
-    const [isOnOff, setOnOff] = useState<boolean>(false)
+    const [isOn, setOn] = useState<boolean>(false)
+    const [ratingValue, setRatingValue] = useState<StarType>(3)
+    const [collapsed, setCollapsed]= useState<boolean>(true)
     return (
-        <div>
-            <UnvontrolledRating />
-            <UncontrolledAccordion title={'Julia syper'} />
+        <div className={'app'}>
+            <UnvontrolledRating/>
+            <UncontrolledAccordion title={'Julia syper'}/>
+            <UncontrolledOnOff/>
             <PageTitle title="App Title"/>
             Article 1
-            <Accordion title={"Menu"} collapsed={true}/>
-            <Rating value={1}/>
-            Article 2
-            <Accordion title={"Menu"} collapsed={true}/>
-            <Rating value={5}/>
-            <OnOff/>
+            <Accordion title={"Menu"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)} />
+            <Rating value={ratingValue} setRatingValue={setRatingValue}/>
+            {/*Article 2
+            <Accordion title={"Menu"} collapsed={true}/>*/}
+            {/* <Rating value={5}/>*/}
+            <OnOff isOn={isOn} setOnHandler={setOn}/>
         </div>
     );
 }

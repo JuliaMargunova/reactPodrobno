@@ -1,0 +1,6 @@
+.app{
+    width: 400px;
+    margin: 100px auto;
+    text-align:center ;
+}
+ul li{list-style: none;}
