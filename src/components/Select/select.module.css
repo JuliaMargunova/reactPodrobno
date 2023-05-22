@@ -1,0 +1,21 @@
+.select{
+    width: 160px;
+    position: relative;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    height: 36px;
+    padding: 5px 20px;
+    box-shadow:   inset 0 -3em 3em rgba(0,0,0,0.1),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+.down{
+    height: 10px;
+}
+.list{
+    width:100%;
+    position: absolute;
+    box-shadow:   inset 0 -3em 3em rgba(0,0,0,0.1),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);
+}

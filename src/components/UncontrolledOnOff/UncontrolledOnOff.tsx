@@ -1,9 +1,13 @@
 import React, {useState} from "react";
 import styles from './UncontrolledOnOff.module.css'
 
+type PropsType = {
+    onChange: (on: boolean) => void
+    defaultOn?: boolean
+}
 
-export const UncontrolledOnOff = () => {
-    const [isOn,setOn]= useState<boolean>(false)
+export const UncontrolledOnOff: React.FC<PropsType> = (props) => {
+    const [isOn, setOn] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
 
     const onStyle = {
         display: 'inline-block',
@@ -30,9 +34,9 @@ export const UncontrolledOnOff = () => {
     }
     return (
         <div>
-            <div style={onStyle} onClick={()=>setOn(true)}>On
+            <div style={onStyle} onClick={() => setOn(true)}>On
             </div>
-            <div style={offStyle} onClick={()=>setOn(false)}>Off
+            <div style={offStyle} onClick={() => setOn(false)} onChange={() => props.onChange(isOn)}>Off
             </div>
             <div style={circle}></div>
         </div>

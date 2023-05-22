@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from './OnOff.module.css'
 
-type PropsType = {
+export type PropsType = {
     isOn:boolean
     setOnHandler:(on:boolean)=>void
 }

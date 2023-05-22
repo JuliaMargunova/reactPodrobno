@@ -11,7 +11,7 @@ function Star(props: StarPropsType) {
 
 type RatingPropsType = {}
 
-export function UnvontrolledRating(props: RatingPropsType) {
+export function UncontrolledRating(props: RatingPropsType) {
 
     const [value, setValue] = useState<StarType>(0)
     let masStar: Array<StarType> = [ 1, 2, 3, 4,5];
