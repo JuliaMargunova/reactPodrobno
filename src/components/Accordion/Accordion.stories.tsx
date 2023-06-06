@@ -2,10 +2,9 @@ import React, {useState} from "react";
 import type {Meta, StoryObj} from '@storybook/react';
 import {action} from '@storybook/addon-actions'
 import {Accordion} from './Accordion'
-import {string} from "prop-types";
 
 const meta: Meta<typeof Accordion> = {
-    title: 'Accordion',
+    title: 'Components/Accordion',
     component: Accordion,
     tags: ['autodocs'],
     args: {
@@ -18,7 +17,10 @@ const meta: Meta<typeof Accordion> = {
     },
     argTypes: {
         setCollapsed: {action: 'collapsed'},
-        color: {control: 'color'},
+        color: {
+            control: 'color',
+            table: {category: 'Color'}
+        },
     }
 };
 
@@ -54,5 +56,5 @@ const AccordionWithHooks = () => {
                       setCollapsed={() => setCollapsed(!collapsed)}/>;
 };
 export const DefaultAccordion: Story = {
-    render: () => <AccordionWithHooks  />,
+    render: () => <AccordionWithHooks/>,
 };

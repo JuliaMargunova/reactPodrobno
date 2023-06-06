@@ -4,7 +4,7 @@ import {Rating} from "./Rating";
 import {StarType} from "../../App";
 
 const meta: Meta<typeof Rating> = {
-    title: 'Rating',
+    title: 'Components/Rating',
     component: Rating,
     tags: ['autodocs'],
     argTypes:{
