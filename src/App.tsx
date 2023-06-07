@@ -30,7 +30,7 @@ function App() {
 
     return (
         <div className={'app'}>
-            <UncontrolledRating/>
+            <UncontrolledRating onChange={()=>{}} />
             <UncontrolledAccordion title={'Julia syper'}/>
             <UncontrolledOnOff onChange={onChangeOnOff}/>
             <PageTitle title="App Title"/>
