@@ -25,7 +25,18 @@ export const Hidden: Story = {
 export const Open: Story = {
     args: {
         title: 'Technology',
-        //collapsed:true,
+        // collapsed:true,
+        items: [
+            {title: 'item1', value: '1'},
+            {title: 'item2', value: '2'},
+            {title: 'item3', value: '3'},
+            {title: 'item4', value: '4'},
+            {title: 'item5', value: '5'}]
+    },
+};
+export const EmptyTitle: Story = {
+    args: {
+        // collapsed:true,
         items: [
             {title: 'item1', value: '1'},
             {title: 'item2', value: '2'},
@@ -51,6 +62,6 @@ const SelectWithHooks = () => {
         //setCollapsed={()=>setCollapsed(!collapsed)}
     />;
 };
-export const DefaultAccordion: Story = {
+export const SelectDefault: Story = {
     render: () => <SelectWithHooks/>,
 };

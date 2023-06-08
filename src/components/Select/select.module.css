@@ -13,10 +13,16 @@
 .down{
     height: 10px;
 }
-.list{
+.lists{
     width:100%;
     position: absolute;
     box-shadow:   inset 0 -3em 3em rgba(0,0,0,0.1),
     0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
+
+.list.active{
+    background: gray;
+    color: white;
+}
+
 
