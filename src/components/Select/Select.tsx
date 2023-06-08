@@ -11,21 +11,22 @@ type PropsType = {
     title: string,
     items: ItemType[]
     onClick?: (value: any) => void
-    value?:string
+    value?: string
 }
 const Select: FC<PropsType> = (props) => {
-    const [title, setTitle] = useState<string>(props.title)
+    const [selectValue, setSelectValue] = useState<string | undefined>(props.value)
     const [collapsed, setCollapsed] = useState<boolean>(true)
+    const selectedItem = props.items.find((el) => el.value === selectValue)
     return (
         <div className={s.select}>
-            <div className={s.title} onClick={()=>setCollapsed(!collapsed)}>
-                <div>{title}</div>
+            <div className={s.title} onClick={() => setCollapsed(!collapsed)}>
+                <div>{selectedItem && selectedItem.title}</div>
                 <img className={s.down} src={down}/>
             </div>
             {!collapsed && <div className={s.list}>
                 {props.items.map((el, i) =>
-                    <div key={i} onClick={()=>{
-                        setTitle(el.title)
+                    <div key={i} onClick={() => {
+                        setSelectValue(el.value)
                         setCollapsed(true)
                     }
                     }>{el.title} </div>)}

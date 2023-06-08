@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import type {Meta, StoryObj} from '@storybook/react';
 import {action} from '@storybook/addon-actions'
-import {string} from "prop-types";
 import Select from "./Select";
 
 const meta: Meta<typeof Select> = {
