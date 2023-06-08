@@ -11,7 +11,7 @@ type PropsType = {
     title: string,
     items: ItemType[]
     onClick?: (value: any) => void
-
+    value?:string
 }
 const Select: FC<PropsType> = (props) => {
     const [title, setTitle] = useState<string>(props.title)
@@ -21,7 +21,6 @@ const Select: FC<PropsType> = (props) => {
             <div className={s.title} onClick={()=>setCollapsed(!collapsed)}>
                 <div>{title}</div>
                 <img className={s.down} src={down}/>
-
             </div>
             {!collapsed && <div className={s.list}>
                 {props.items.map((el, i) =>

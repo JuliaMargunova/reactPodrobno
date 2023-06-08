@@ -39,7 +39,7 @@ function App() {
                        setCollapsed={() => setCollapsed(!collapsed)}/>
             <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             {/*<Select value={"item1"} items={items} />*/}
-            <Select items={items} title={'1'} onClick={()=>{}}/>
+            <Select items={items} value={'1'} title={'Menu'} onClick={()=>{}}/>
             <OnOff isOn={isOn} setOnHandler={setOn}/>
         </div>
     );

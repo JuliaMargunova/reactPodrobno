@@ -5,7 +5,7 @@ import {string} from "prop-types";
 import Select from "./Select";
 
 const meta: Meta<typeof Select> = {
-    title: 'Select',
+    title: 'Components/Select',
     component: Select,
     tags: ['autodocs'],
     argTypes: {
