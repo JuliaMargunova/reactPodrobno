@@ -25,7 +25,7 @@ test('collapsed should be true', () => {
 })
 
 test('collapsed should be false', () => {
-    //data
+    //data 
     const state : StateType = {
         collapsed: false
     }

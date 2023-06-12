@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import styles from './UncontrolledOnOff.module.css'
 
 type PropsType = {
@@ -6,7 +6,7 @@ type PropsType = {
     defaultOn?: boolean
 }
 
-export const UncontrolledOnOff: React.FC<PropsType> = (props) => {
+export const UncontrolledOnOff: React.FC<PropsType> = memo((props) => {
     const [isOn, setOn] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
 
     const onStyle = {
@@ -42,4 +42,4 @@ export const UncontrolledOnOff: React.FC<PropsType> = (props) => {
         </div>
     )
 
-}
+})

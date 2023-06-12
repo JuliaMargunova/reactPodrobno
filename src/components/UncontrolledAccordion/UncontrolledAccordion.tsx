@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from "react";
+import React, {memo, useReducer, useState} from "react";
 import {reducer, TOGGLE_COLLAPSED} from "./reducer";
 
 type AccordionPropsType = {
@@ -17,7 +17,7 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
     );
 }
 
-function AccordionBody() {
+const AccordionBody = memo(() => {
     console.log("AccordionBody rendering")
     return (
         <ul>
@@ -27,15 +27,17 @@ function AccordionBody() {
             <li>4</li>
             <li>5</li>
         </ul>);
-}
+})
+
 
 type AccordionTitlePropsType = {
     title: string
     onClinckAccordionTitle: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+
+const AccordionTitle = memo((props: AccordionTitlePropsType) => {
     console.log("AccordionTitle rendering")
     return <h3 onClick={props.onClinckAccordionTitle}>{props.title}</h3>;
-}
+})
 

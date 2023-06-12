@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import {StarType} from "../../App";
 
 type StarPropsType = {
@@ -6,17 +6,18 @@ type StarPropsType = {
     onClickStar: () => void
 }
 
-function Star(props: StarPropsType) {
+const Star = memo((props: StarPropsType) => {
+    console.log("Star rendering")
     return <span onClick={props.onClickStar}>{(props.selected) ? <b>star </b> : 'star '}</span>
-}
+})
 
 type RatingPropsType = {
     defaultValue?: StarType
     onChange: (value: StarType) => void
 }
 
-export function UncontrolledRating(props: RatingPropsType) {
-
+export const UncontrolledRating = memo((props: RatingPropsType) => {
+    console.log('UncontrolledRating rendering')
     const [value, setValue] = useState<StarType>(props.defaultValue ? props.defaultValue : 0)
     let masStar: Array<StarType> = [1, 2, 3, 4, 5];
     return (
@@ -29,4 +30,4 @@ export function UncontrolledRating(props: RatingPropsType) {
                 }/>
             </>)}
         </div>);
-}
+})

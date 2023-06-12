@@ -3,7 +3,7 @@ import { FC, memo, useState } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Counter | typeof Users> = {
-    title: 'test/memo',
+    title: 'ReactMemo/memo',
     tags: ['autodocs'],
 }
 

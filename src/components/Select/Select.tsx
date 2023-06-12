@@ -1,4 +1,4 @@
-import React, {FC, useState, KeyboardEvent, useEffect} from 'react';
+import React, {FC, useState, KeyboardEvent, useEffect, memo} from 'react';
 import down from '../../icon/down.png';
 import s from './select.module.css'
 
@@ -13,15 +13,17 @@ type PropsType = {
     onClick?: (value: any) => void
     value?: string
 }
-const Select: FC<PropsType> = (props) => {
+const Select: FC<PropsType> = memo((props) => {
+    console.log("Select rendering")
     const [selectValue, setSelectValue] = useState(props.value)
     const [hoverValue, setHoverValue] = useState(props.value)
     const [collapsed, setCollapsed] = useState<boolean>(true)
     const selectedItem = props.items.find((el) => el.value === selectValue)
     let hoveredItem = props.items.find((el) => el.value === hoverValue)
-    useEffect(()=>{
+
+    useEffect(() => {
         setSelectValue(hoverValue)
-    },[hoverValue])
+    }, [hoverValue])
 
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
 
@@ -34,7 +36,7 @@ const Select: FC<PropsType> = (props) => {
                         return
                     }
                 }
-                if(!selectedItem){
+                if (!selectedItem) {
                     setHoverValue(props.items[0].value);
                 }
             }
@@ -45,8 +47,8 @@ const Select: FC<PropsType> = (props) => {
         }
     }
     return (
-        <div className={s.select} onKeyUp={onKeyUp} tabIndex={0}>
-            <div className={s.title} onClick={() => setCollapsed(!collapsed)}>
+        <div className={s.select} onKeyUp={onKeyUp} tabIndex={0} onBlur={()=>setCollapsed(true)}>
+            <div className={s.title} onClick={() => setCollapsed(!collapsed)} >
                 <div>{selectedItem ? selectedItem.title : props.title}</div>
                 <img className={s.down} src={down}/>
             </div>
@@ -64,6 +66,6 @@ const Select: FC<PropsType> = (props) => {
             </div>}
         </div>
     );
-};
+})
 
 export default Select;

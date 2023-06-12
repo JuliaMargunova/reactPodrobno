@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import styles from './OnOff.module.css'
 
 export type PropsType = {
     isOn:boolean
     setOnHandler:(on:boolean)=>void
 }
-export const OnOff: React.FC<PropsType> = ({isOn,setOnHandler}) => {
+export const OnOff: React.FC<PropsType> = memo( ({isOn,setOnHandler}) => {
+    console.log("OnOff rendering")
      const onStyle = {
         display: 'inline-block',
         border: '1px solid ',
@@ -37,4 +38,4 @@ export const OnOff: React.FC<PropsType> = ({isOn,setOnHandler}) => {
             <div style={circle}></div>
         </div>
     )
-}
+})
