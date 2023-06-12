@@ -3,8 +3,8 @@ import down from '../../icon/down.png';
 import s from './select.module.css'
 
 type ItemType = {
-    title: string,
-    value: any
+    title: any,
+    value: string
 }
 
 type PropsType = {
@@ -21,9 +21,13 @@ const Select: FC<PropsType> = memo((props) => {
     const selectedItem = props.items.find((el) => el.value === selectValue)
     let hoveredItem = props.items.find((el) => el.value === hoverValue)
 
-    useEffect(() => {
+   /* useEffect(() => {
         setSelectValue(hoverValue)
-    }, [hoverValue])
+    }, [hoverValue])*/
+    useEffect(() => {
+        setHoverValue(selectValue)
+    }, [selectValue])
+
 
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
 

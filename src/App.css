@@ -4,3 +4,8 @@
     text-align:center ;
 }
 ul li{list-style: none;}
+
+#listSelects{
+    display: flex;
+    gap: 10px;
+}
