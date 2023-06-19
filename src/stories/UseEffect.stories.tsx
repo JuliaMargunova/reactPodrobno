@@ -72,3 +72,27 @@ export const SetTimeoutExample: Story = {
         )
     },
 }
+
+export const SetIntervalExample: Story = {
+
+    render: () => {
+        console.log("SetIntervalExample")
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [counter, setCounter] = useState(1)
+
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useEffect(() => {
+            console.log("setTimeout")
+            setInterval(() => {
+                //console.log("tick:" + counter)
+                setCounter(state => state + 1)
+            }, 1000)
+        }, [])
+
+        return (
+            <>
+                Hello ,counter:{counter}
+            </>
+        )
+    },
+}
