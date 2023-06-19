@@ -28,12 +28,40 @@ export const SimplyExample: Story = {
         useEffect(() => {
             console.log("useEffect only first render(componentDidMound)")
             document.title = counter.toString()
-        },[])
+        }, [])
         // eslint-disable-next-line react-hooks/rules-of-hooks
         useEffect(() => {
             console.log("useEffect first render and every counter change")
             document.title = counter.toString()
-        },[counter])
+        }, [counter])
+
+        return (
+            <>
+                <button onClick={() => setCounter(counter + 1)}>Counter+</button>
+                <button onClick={() => setFake(fake + 1)}>Fake+</button>
+                Hello ,{counter}
+            </>
+        )
+    },
+}
+
+export const SetTimeoutExample: Story = {
+
+    render: () => {
+        console.log("SetTimeoutExample")
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [counter, setCounter] = useState(1)
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [fake, setFake] = useState(1)
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useEffect(() => {
+            console.log("setTimeout")
+            setTimeout(() => {
+                document.title = counter.toString()
+            }, 1000)
+        }, [counter])
 
         return (
             <>
