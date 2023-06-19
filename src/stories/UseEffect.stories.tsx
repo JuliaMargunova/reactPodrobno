@@ -98,7 +98,6 @@ export const SetIntervalExample: Story = {
 }
 
 export const ClockExample: Story = {
-
     render: () => {
         console.log("ClockExample")
         // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -107,10 +106,11 @@ export const ClockExample: Story = {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         useEffect(() => {
             console.log("setTimeout")
-            setInterval(() => {
+          const interval =  setInterval(() => {
                 //console.log("tick:" + counter)
                 setTime(new Date())
             }, 1000)
+            return ()=>clearInterval(interval)
         }, [])
         const hours = time.getHours();
         const minutes = time.getMinutes();
@@ -118,6 +118,7 @@ export const ClockExample: Story = {
         const timeString = `${hours}:${minutes}:${seconds}`;
         return (
             <>
+              {/*  <time dateTime={time.toISOString()}> {time.toLocaleTimeString()}</time>*/}
                 <strong>Time: </strong>{ timeString}
             </>
         )
