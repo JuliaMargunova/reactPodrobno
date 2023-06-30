@@ -124,3 +124,25 @@ export const ClockExample: Story = {
         )
     },
 }
+
+export const ResetEffectExample: Story = {
+
+    render: () => {
+        console.log("ResetEffectExample")
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [counter, setCounter] = useState(1)
+
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useEffect(() => {
+            console.log("Effect occurred")
+
+        }, [])
+
+        return (
+            <>
+                Hello ,counter:{counter}
+                <button onClick={()=>{setCounter(counter+1)}}>+</button>
+            </>
+        )
+    }
+}
